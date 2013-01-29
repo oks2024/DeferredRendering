@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DeferredRendering", "DeferredRendering\DeferredRendering.vcxproj", "{203C26F4-2F5B-4B29-81A2-7B4FD2E107FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{203C26F4-2F5B-4B29-81A2-7B4FD2E107FE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{203C26F4-2F5B-4B29-81A2-7B4FD2E107FE}.Debug|Win32.Build.0 = Debug|Win32
+		{203C26F4-2F5B-4B29-81A2-7B4FD2E107FE}.Release|Win32.ActiveCfg = Release|Win32
+		{203C26F4-2F5B-4B29-81A2-7B4FD2E107FE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

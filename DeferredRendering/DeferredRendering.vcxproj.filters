@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{292ecdf3-3dca-4f26-b4fd-98cfa5eb54a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Effects">
+      <UniqueIdentifier>{19ed6d35-114c-46ec-8bc1-5d8d19ad7e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Tools">
+      <UniqueIdentifier>{b27ce5c6-3c42-4115-a351-07e425632882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Shaders">
+      <UniqueIdentifier>{4e7d03df-ce37-4256-a052-4715e4c2fa26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structs">
+      <UniqueIdentifier>{3b8e1421-8ecd-4fa6-a005-2a67ab433bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities">
+      <UniqueIdentifier>{e3dc278f-5472-4ccc-b0bf-554c6ae9cd2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Voxels">
+      <UniqueIdentifier>{bf145b88-d6bc-4a17-9e07-75e2c06cc8b7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DeferredRendering.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DeferredRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GBufferRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexStructures.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantBufferStructures.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="LightningRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CombineFinalRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Voxel.h">
+      <Filter>Source Files\Entities\Voxels</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DeferredRendering.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DeferredRenderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GBufferRenderer.cpp">
+      <Filter>Source Files\Renderer\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="LightningRenderer.cpp">
+      <Filter>Source Files\Renderer\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadRenderer.cpp">
+      <Filter>Source Files\Renderer\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="CombineFinalRenderer.cpp">
+      <Filter>Source Files\Renderer\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Renderer\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunk.cpp">
+      <Filter>Source Files\Entities\Voxels</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DeferredRendering.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="DeferredRendering.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="QuadVertexShader.hlsl">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="ClearPixelShader.hlsl">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="DrawTexturePixelShader.hlsl">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="RenderGBufferVertexShader.hlsl">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="RenderGBufferPixelShader.hlsl">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="DirectionalLightPixelShader.hlsl">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="CombineFinalPixelShader.hlsl">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
