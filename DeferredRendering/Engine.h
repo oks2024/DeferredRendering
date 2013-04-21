@@ -12,15 +12,15 @@ private:
 	static Engine *m_Instance;
 
 	// DirectX 11 datas.
-	ID3D11Device*				g_pd3dDevice;
-	ID3D11DeviceContext*		g_pImmediateContext;
-	IDXGISwapChain*				g_pSwapChain;
-	D3D_DRIVER_TYPE				g_driverType;
-	D3D_FEATURE_LEVEL			g_featureLevel;
-	ID3D11RenderTargetView*		g_pRenderTargetView;
-	ID3D11Texture2D*			g_pDepthStencil;
-	ID3D11DepthStencilView*		g_pDepthStencilView;
-	ID3D11RasterizerState*		g_pRasterizerState;
+	ID3D11Device*				m_pd3dDevice;
+	ID3D11DeviceContext*		m_pImmediateContext;
+	IDXGISwapChain*				m_pSwapChain;
+	D3D_DRIVER_TYPE				m_driverType;
+	D3D_FEATURE_LEVEL			m_featureLevel;
+	ID3D11RenderTargetView*		m_pRenderTargetView;
+	ID3D11Texture2D*			m_pDepthStencil;
+	ID3D11DepthStencilView*		m_pDepthStencilView;
+	ID3D11RasterizerState*		m_pRasterizerState;
 	ID3D11SamplerState*			m_pSamplerLinear;
 	ID3D11SamplerState*			m_pSamplerPoint;
 

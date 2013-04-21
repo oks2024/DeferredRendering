@@ -5,6 +5,10 @@
 #include "Engine.h"
 #include "QuadRenderer.h"
 
+#ifdef _DEBUG
+#include "InputManager.h"
+#endif
+
 GBufferRenderer::GBufferRenderer(void)
 {
 	ID3DBlob* renderVSBlob = NULL;
@@ -14,7 +18,7 @@ GBufferRenderer::GBufferRenderer(void)
 	m_pRenderGBufferVertexShader = Engine::Instance()->CreateVertexShader(L"RenderGBufferVertexShader.hlsl", "main", &renderVSBlob);
 	m_pRenderGBufferPixelShader = Engine::Instance()->CreatePixelShader(L"RenderGBufferPixelShader.hlsl", "main");
 
-
+	
 
 	HRESULT hr;
 	// Create the constant buffer
@@ -68,6 +72,11 @@ void GBufferRenderer::Render(ID3D11RenderTargetView* ppAlbedo,
 							 Camera* p_pCamera,
 							 Scene* p_pScene)
 {
+
+#ifdef _DEBUG
+	m_nbDrawCalls = 0;
+#endif
+
 	// Update our time
 	static float t = 0.0f;
 
@@ -120,22 +129,39 @@ void GBufferRenderer::Render(ID3D11RenderTargetView* ppAlbedo,
 
 
 	for (int x = 0; x < 64; x++)
+	{
 		for (int y = 0; y < 10; y++)
+		{
 			for (int z = 0; z < 64; z++)
 			{
 				if ( p_pScene->voxels[x][y][z].State != Active)
 				{
+
+					#ifdef _DEBUG
+						m_nbDrawCalls++;
+					#endif
 					GBufferConstantBuffer m_ConstantBufferStructure;
 					m_ConstantBufferStructure.mWorld = XMMatrixTranspose(XMMatrixTranslation(32 - x * 2.0f, -y * 2.0f, 32 - z*2.0f));
-					m_ConstantBufferStructure.mView = XMMatrixTranspose(p_pCamera->GetViewMatrix());
-					m_ConstantBufferStructure.mProjection = XMMatrixTranspose(p_pCamera->GetProjectionMatrix());
+					//m_ConstantBufferStructure.mView = XMMatrixTranspose(p_pCamera->GetViewMatrix());
+					m_ConstantBufferStructure.mView = p_pCamera->GetViewMatrix();
+					m_ConstantBufferStructure.mProjection = p_pCamera->GetProjectionMatrix();
 
 					engine->GetImmediateContext()->UpdateSubresource(m_pConstantBuffer, 0, NULL, &m_ConstantBufferStructure, 0, 0);
 
 					engine->GetImmediateContext()->DrawIndexed(12 * 3, 0, 0);
 				}
 			}
-	
+		}
+	}
 
+
+	#ifdef _DEBUG
+		if (InputManager::Instance()->IsKeyDown(DIK_Z))
+		{
+			char buf[2048];
+			sprintf_s(buf,"Number of draw calls:  %i \n",m_nbDrawCalls);
+			OutputDebugStringA(buf);
+		}
+	#endif
 
 }

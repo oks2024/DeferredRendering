@@ -8,7 +8,7 @@
 class Model
 {
 public:
-	Model(void);
+	Model(VertexPositionNormalTexture p_VertexBuffer[], int p_IndexBuffer[]);
 	~Model(void);
 
 	ID3D11Buffer* GetVertexBuffer();

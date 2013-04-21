@@ -6,7 +6,7 @@
 
 Scene::Scene(void)
 {
-	m_Models.push_back(new Model());
+	m_Models.push_back(new Model(NULL, NULL));
 	srand(0);
 	for (int x = 0; x < 64; x++)
 		for (int y = 0; y < 10; y++)

@@ -48,53 +48,53 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DeferredRendering.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DeferredRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GBufferRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="QuadRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="VertexStructures.h">
       <Filter>Source Files\Structs</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ConstantBufferStructures.h">
       <Filter>Source Files\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="LightningRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CombineFinalRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Voxel.h">
       <Filter>Source Files\Entities\Voxels</Filter>
     </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files\Entities</Filter>
+    </ClInclude>
     <ClInclude Include="Chunk.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Entities\Voxels</Filter>
+    </ClInclude>
+    <ClInclude Include="CombineFinalRenderer.h">
+      <Filter>Source Files\Renderer\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="GBufferRenderer.h">
+      <Filter>Source Files\Renderer\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="LightningRenderer.h">
+      <Filter>Source Files\Renderer\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="DeferredRenderer.h">
+      <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Source Files\Renderer\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadRenderer.h">
+      <Filter>Source Files\Renderer\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DeferredRendering.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="VoxelEngine.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,7 @@
 #include "DeferredRenderer.h"
 #include "Engine.h"
 #include "QuadRenderer.h"
+#include "InputManager.h"
 
 
 DeferredRenderer::DeferredRenderer(void)
@@ -263,6 +264,12 @@ DeferredRenderer::DeferredRenderer(void)
 	m_pScene = new Scene();
 
 	OutputDebugString(L"Deferred renderer initialized\n");
+}
+
+void DeferredRenderer::Update()
+{
+	InputManager::Instance()->Update();
+	m_pCamera->Update();
 }
 
 void DeferredRenderer::Render()

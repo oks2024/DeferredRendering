@@ -9,17 +9,6 @@
 
 Engine::Engine()
 {
-
-	g_pd3dDevice = NULL;
-	g_pImmediateContext = NULL;
-	g_pSwapChain = NULL;
-	g_pRenderTargetView = NULL;
-	g_pDepthStencil = NULL;
-	g_pDepthStencilView = NULL;
-	g_pRasterizerState = NULL;
-	m_pSamplerLinear = NULL;
-	m_pSamplerPoint = NULL;
-
 	HRESULT hr = S_OK;
 
 	RECT rc;
@@ -65,19 +54,19 @@ Engine::Engine()
 
 	for(UINT driverTypeIndex = 0; driverTypeIndex < numDriverTypes; driverTypeIndex++)
 	{
-		g_driverType = driverTypes[driverTypeIndex];
+		m_driverType = driverTypes[driverTypeIndex];
 		hr = D3D11CreateDeviceAndSwapChain(NULL, 
-			g_driverType, 
+			m_driverType, 
 			NULL, 
 			createDeviceFlags, 
 			featureLevels, 
 			numFeatureLevels,
 			D3D11_SDK_VERSION,
 			&sd,
-			&g_pSwapChain,
-			&g_pd3dDevice,
-			&g_featureLevel,
-			&g_pImmediateContext);
+			&m_pSwapChain,
+			&m_pd3dDevice,
+			&m_featureLevel,
+			&m_pImmediateContext);
 		if (SUCCEEDED(hr))
 			break;
 	}
@@ -89,13 +78,13 @@ Engine::Engine()
 	// Create the back buffer.
 	// Create a render target view.
 	ID3D11Texture2D* pBackBuffer = NULL;
-	hr = g_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
+	hr = m_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
 	if (FAILED(hr))
 	{
 		MessageBox(NULL, L"Error.", L"Error", MB_OK);
 	}
 
-	hr = g_pd3dDevice->CreateRenderTargetView(pBackBuffer, NULL, &g_pRenderTargetView);
+	hr = m_pd3dDevice->CreateRenderTargetView(pBackBuffer, NULL, &m_pRenderTargetView);
 	pBackBuffer->Release();
 	if(FAILED(hr))
 	{
@@ -116,7 +105,7 @@ Engine::Engine()
 	descDepth.BindFlags = D3D11_BIND_DEPTH_STENCIL;
 	descDepth.CPUAccessFlags = 0;
 	descDepth.MiscFlags = 0;
-	hr = g_pd3dDevice->CreateTexture2D(&descDepth, NULL, &g_pDepthStencil);
+	hr = m_pd3dDevice->CreateTexture2D(&descDepth, NULL, &m_pDepthStencil);
 	if(FAILED(hr))
 	{
 		MessageBox(NULL, L"Error.", L"Error", MB_OK);
@@ -128,7 +117,7 @@ Engine::Engine()
 	descDSV.Format = descDepth.Format;
 	descDSV.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
 	descDSV.Texture2D.MipSlice = 0;
-	hr = g_pd3dDevice->CreateDepthStencilView(g_pDepthStencil, &descDSV, &g_pDepthStencilView);
+	hr = m_pd3dDevice->CreateDepthStencilView(m_pDepthStencil, &descDSV, &m_pDepthStencilView);
 	if(FAILED(hr))
 	{
 		MessageBox(NULL, L"Error.", L"Error", MB_OK);
@@ -146,7 +135,7 @@ Engine::Engine()
 	sampDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 	sampDesc.MinLOD = 0;
 	sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
-	hr = g_pd3dDevice->CreateSamplerState(&sampDesc, &m_pSamplerLinear);
+	hr = m_pd3dDevice->CreateSamplerState(&sampDesc, &m_pSamplerLinear);
 	if(FAILED(hr))
 		MessageBox(NULL, L"Error creating linear sampler.", L"Error", MB_OK);
 
@@ -160,7 +149,7 @@ Engine::Engine()
 	sampPointDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 	sampPointDesc.MinLOD = 0;
 	sampPointDesc.MaxLOD = D3D11_FLOAT32_MAX;
-	hr = g_pd3dDevice->CreateSamplerState(&sampPointDesc, &m_pSamplerPoint);
+	hr = m_pd3dDevice->CreateSamplerState(&sampPointDesc, &m_pSamplerPoint);
 	if(FAILED(hr))
 		MessageBox(NULL, L"Error creating point sampler.", L"Error", MB_OK);
 
@@ -172,7 +161,7 @@ Engine::Engine()
 	vp.MaxDepth = 1.0f;
 	vp.TopLeftX = 0;
 	vp.TopLeftY = 0;
-	g_pImmediateContext->RSSetViewports(1, &vp);
+	m_pImmediateContext->RSSetViewports(1, &vp);
 
 		// Setup the raster description which will determine how and what polygons will be drawn.
 	D3D11_RASTERIZER_DESC rasterDesc;
@@ -189,14 +178,14 @@ Engine::Engine()
 	rasterDesc.SlopeScaledDepthBias = 0.0f;
 
 	// Create the rasterizer state from the description we just filled out.
-	hr = g_pd3dDevice->CreateRasterizerState(&rasterDesc, &g_pRasterizerState);
+	hr = m_pd3dDevice->CreateRasterizerState(&rasterDesc, &m_pRasterizerState);
 	if(FAILED(hr))
 	{
 		MessageBox(NULL, L"Error creating rasterizer state.", L"Error", MB_OK);
 	}
 
 	// Now set the rasterizer state.
-	g_pImmediateContext->RSSetState(g_pRasterizerState);
+	m_pImmediateContext->RSSetState(m_pRasterizerState);
 
 	//D3D11_BLEND_DESC opaqueBlendDesc;
 	//opaqueBlendDesc.RenderTarget[0].BlendEnable = TRUE;
@@ -237,6 +226,15 @@ Engine* Engine::Instance()
 
 Engine::~Engine()
 {
+	//if (g_pd3dDevice) g_pd3dDevice->Release();
+	//g_pImmediateContext = NULL;
+	//g_pSwapChain = NULL;
+	//g_pRenderTargetView = NULL;
+	//g_pDepthStencil = NULL;
+	//g_pDepthStencilView = NULL;
+	//g_pRasterizerState = NULL;
+	//m_pSamplerLinear = NULL;
+	//m_pSamplerPoint = NULL;
 }
 
 // Tools
@@ -387,12 +385,12 @@ void Engine::SetOpaque()
 void Engine::ClearDepthStencilView()
 {
 	// Clear the depth buffer to 1.0;
-	g_pImmediateContext->ClearDepthStencilView(g_pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+	m_pImmediateContext->ClearDepthStencilView(m_pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
 
 void Engine::Present()
 {
-	g_pSwapChain->Present(0, 0);
+	m_pSwapChain->Present(0, 0);
 }
 
 // Getters and Setters
@@ -408,22 +406,22 @@ int Engine::GetHeight()
 
 ID3D11Device* Engine::GetDevice()
 {
-	return g_pd3dDevice;
+	return m_pd3dDevice;
 }
 
 ID3D11DeviceContext* Engine::GetImmediateContext()
 {
-	return g_pImmediateContext;
+	return m_pImmediateContext;
 }
 
 ID3D11RenderTargetView* Engine::GetBackBufferRenderTarget()
 {
-	return g_pRenderTargetView;
+	return m_pRenderTargetView;
 }
 
 ID3D11DepthStencilView* Engine::GetDepthStencil()
 {
-	return g_pDepthStencilView;
+	return m_pDepthStencilView;
 }
 
 ID3D11SamplerState* Engine::GetSamplerLinear()

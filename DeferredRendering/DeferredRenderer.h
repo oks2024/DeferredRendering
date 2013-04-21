@@ -12,6 +12,7 @@ public:
 	DeferredRenderer(void);
 	~DeferredRenderer(void);
 
+	void Update();
 	void Render();
 
 

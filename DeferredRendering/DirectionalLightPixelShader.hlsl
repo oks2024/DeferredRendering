@@ -9,7 +9,7 @@ cbuffer ConstantBuffer: register(b0)
 {
 	float4 LightDirection;
 	float4 Color;
-	float4 CameraPosition;
+	float3 CameraPosition;
 	matrix InvertViewProjection;
 }
 

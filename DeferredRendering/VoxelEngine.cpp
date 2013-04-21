@@ -5,7 +5,7 @@
 VoxelEngine::VoxelEngine(int p_Width, int p_Height, int p_Depth)
 {
 	this->m_Width = p_Width;
-	this->m_Height = p_Depth;
+	this->m_Height = p_Height;
 	this->m_Depth = p_Depth;
 
 	// Initialize datas.
@@ -16,6 +16,13 @@ VoxelEngine::VoxelEngine(int p_Width, int p_Height, int p_Depth)
 		for (int j = 0; j < m_Height; j++)
 		{
 			m_pChunks[i][j] = new Chunk[m_Depth];
+
+			for (int k = 0; k < m_Depth; k++)
+			{
+				m_pChunks[i][j][k].m_X = i;
+				m_pChunks[i][j][k].m_Y = j;
+				m_pChunks[i][j][k].m_Z = k;
+			}
 		}
 	}
 }

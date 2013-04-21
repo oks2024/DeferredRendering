@@ -22,6 +22,11 @@ private:
 
 	ID3D11InputLayout* m_pRenderVertexLayout;
 
+#ifdef _DEBUG
+	// Statistics.
+	int m_nbDrawCalls;
+#endif
+
 
 };
 

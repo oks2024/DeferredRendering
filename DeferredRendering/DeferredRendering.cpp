@@ -65,8 +65,10 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		else
 		{
 			// INSERT UPDATE AND RENDERING FUNCTIONS
-			InputManager::Instance()->Update();
+			
+			m_pDeferredRenderer->Update();
 			m_pDeferredRenderer->Render();
+
 			if (InputManager::Instance()->IsKeyDown(DIK_ESCAPE))
 			{
 				msg.message = WM_QUIT;

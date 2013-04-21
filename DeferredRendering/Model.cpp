@@ -5,7 +5,7 @@
 #include "Engine.h"
 
 using namespace DirectX;
-Model::Model()
+Model::Model(VertexPositionNormalTexture p_VertexBuffer[], int p_IndexBuffer[])
 {
 	
 	//// Create vertex buffer
@@ -95,6 +95,7 @@ Model::Model()
 	//};
 	
 	// Create vertex buffer
+	
 	VertexPositionNormalTexture tempVertices[] = 
 	{
 		{ XMFLOAT3( -1.0f, 1.0f, -1.0f ), XMFLOAT3( 0.0f, 1.0f, 0.0f ), XMFLOAT2(0.0f, 0.0f) },
@@ -166,7 +167,7 @@ Model::Model()
 	//{
 	//	m_Indices[i] = indicesTemp[i];
 	//}
-
+	
 	HRESULT hr;
 
 	// Create vertex buffer.
@@ -206,6 +207,7 @@ Model::Model()
 		MessageBox(NULL, L"Error creating index buffer.", L"Error", MB_OK);
 	}
 
+	
 }
 
 

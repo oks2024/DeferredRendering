@@ -54,11 +54,13 @@ void LightningRenderer::Render(ID3D11RenderTargetView* p_pLightMap,
 	LightningConstantBuffer lightningConstantBuffer;
 	lightningConstantBuffer.mLightDirection = XMFLOAT4(0.5f, -0.3f, 0.0f, 1.0f);
 	lightningConstantBuffer.mColor = XMFLOAT4(0.99f, 1.0f, 1.0f, 1.0f);
-	XMFLOAT4 position;
-	XMStoreFloat4(&position, p_pCamera->GetPosition());
-	lightningConstantBuffer.mCameraPosition = position;
+	//XMFLOAT4 position;
+	//XMStoreFloat4(&position, p_pCamera->GetPosition());
+	lightningConstantBuffer.mCameraPosition = p_pCamera->GetPosition();
 
-	lightningConstantBuffer.mInvertViewMatrix = XMMatrixTranspose(XMMatrixInverse(nullptr, XMMatrixMultiply(p_pCamera->GetViewMatrix(), p_pCamera->GetProjectionMatrix())));
+	
+	//lightningConstantBuffer.mInvertViewMatrix = XMMatrixTranspose(XMMatrixInverse(nullptr, XMMatrixMultiply(p_pCamera->GetViewMatrix(), p_pCamera->GetProjectionMatrix())));
+	lightningConstantBuffer.mInvertViewMatrix = p_pCamera->GetInvertViewProjection();
 	quadRenderer->SetConstantBuffer(0, m_pConstantBuffer);
 	quadRenderer->UpdateSubresource(m_pConstantBuffer, &lightningConstantBuffer);
 

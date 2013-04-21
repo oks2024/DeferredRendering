@@ -3,11 +3,15 @@
 #include "stdafx.h"
 #include "Chunk.h"
 
-#include "VertexStructures.h"
 
 
-Chunk::Chunk(void)
+
+Chunk::Chunk(/*int p_X, int p_Y, int p_Z*/)
 {
+	/*m_X = p_X;
+	m_Y = p_Y;
+	m_Z = p_Z;*/
+
 	// Initialize datas.
 	m_pVoxels = new Voxel**[CHUNK_SIZE];
 	for (int i = 0; i < CHUNK_SIZE; i++)
@@ -37,13 +41,30 @@ Chunk::~Chunk(void)
 
 void Chunk::Update()
 {
-	std::vector<VertexPositionNormalTexture> *vertexBuffer = new std::vector<VertexPositionNormalTexture>();
-	std::vector<WORD> *indexBuffer = new std::vector<WORD>();
+	//std::vector<VertexPositionNormalTexture> *vertexBuffer = new std::vector<VertexPositionNormalTexture>();
+	//std::vector<WORD> *indexBuffer = new std::vector<WORD>();
+
+	for (int x = 0; x < CHUNK_SIZE; x++)
+	{
+		for (int y = 0; y < CHUNK_SIZE; y++)
+		{
+			for (int z = 0; z < CHUNK_SIZE; z++)
+			{
+				CreateVoxel();
+			}
+		}
+	}
 
 
 }
 
-Voxel* Chunk::GetVoxel(int p_X, int p_Y, int p_Z)
+
+void Chunk::CreateVoxel()
+{
+
+}
+
+Voxel* Chunk::GetVoxel(const int p_X,const int p_Y,const int p_Z)
 {
 	return &(m_pVoxels[p_X][p_Y][p_Z]);
 }
